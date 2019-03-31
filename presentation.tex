@@ -1,0 +1,53 @@
+% UiS Beamer presentation (http://ctan.org/pkg/beamer)
+% Licence: GNU General Public License v3 (https://www.gnu.org/licenses/gpl-3.0.en.html)
+% Modified by Nithiya Streethran (nmstreethran@gmail.com)
+% University of Stavanger (UiS) (https://www.uis.no/)
+
+% DOCUMENT CONFIGURATION AND PROPERTIES -------------------------------
+\documentclass[aspectratio=169]{beamer} % aspect ratio for widescreen
+\mode<presentation> {}
+
+% define shortcuts to document properties https://en.wikibooks.org/wiki/TeX/def
+\def \auth {Author} % author
+\def \prestitle {The presentation title, which can be long ...} % presentation title; maximum three lines in the title slide
+\def \titlesize {\LARGE} % title font size; maximum four lines at \LARGE; if you would like to change the font size, use one of these other font size commands: https://www.overleaf.com/learn/latex/Font_sizes,_families,_and_styles#Reference_guide 
+\def \subt {Subtitle} % subtitle/event name; leave empty {} if none
+\renewcommand \date {\today} % date
+\def \email {emailid@mail.com} % email
+\def \ending {Thank you for your attention!} % ending for end frame
+
+% import UiS beamer style file
+\usepackage{uisbeamer}
+
+% import bibliography file
+\addbibresource{sample.bib} % sample courtesy of http://ctan.cs.uu.nl/macros/latex/contrib/biblatex/doc/examples/biblatex-examples.bib
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+% TITLE SLIDE -------------------------------
+\begingroup
+\titlebg % set title frame background; do this before beginning the frame
+\begin{frame}[t]
+	\maketitle
+\end{frame}
+\endgroup
+
+% MAIN BODY SLIDES ----------------------------------
+\bodybg % set main body frames' background 
+\input{body}
+
+% END SLIDE ------------------------------------------------
+\begingroup
+\titlebg % set frame background (same as title frame)
+\begin{frame}[t]
+	\makeendframe
+\end{frame}
+\endgroup
+
+% BACKUP SLIDES -----------------------------------------------
+\appendix % https://tex.stackexchange.com/a/70495/140109
+\backupbg % set backup frames' background
+\input{backup} % references and backup slides
+
+\end{document}
