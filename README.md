@@ -34,8 +34,8 @@ This template uses the [`beamer`](https://ctan.org/pkg/beamer) class. Some of th
 
 PdfLaTeX > Biber > PdfLaTeX > PdfLaTeX
 
-Compiled using [latexmk](https://ctan.org/pkg/latexmk) on [Visual Studio Code](https://code.visualstudio.com/) with [LaTeX Workshop](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop) and [texlive](https://tug.org/texlive/).
+Compiled using [latexmk](https://ctan.org/pkg/latexmk) on [VSCodium](https://vscodium.github.io/) (open-source alternative to [Visual Studio Code](https://code.visualstudio.com/)) with [LaTeX Workshop](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop) and [texlive](https://tug.org/texlive/).
 
 ## License
 
-This work is licensed under the [GNU General Public License, Version 3](https://www.gnu.org/licenses/gpl-3.0.en.html). See [LICENSE](https://github.com/nmstreethran/UiS-beamer/blob/master/LICENSE) for more information.
+[uisbeamer.sty](https://github.com/nmstreethran/UiS-beamer/blob/master/uisbeamer.sty) is licensed under the [GNU General Public License, Version 3](https://www.gnu.org/licenses/gpl-3.0.en.html). See [LICENSE](https://github.com/nmstreethran/UiS-beamer/blob/master/LICENSE) for more information.

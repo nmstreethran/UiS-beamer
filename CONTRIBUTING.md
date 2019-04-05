@@ -6,7 +6,7 @@ Thank you for stopping by and considering contributing to this repository!
 
 ## Contact me
 
-Please email me: nmstreethran@gmail.com
+Please email me: nmstreethran@gmail.com (Nithiya Streethran)
 
 ## Reporting issues
 

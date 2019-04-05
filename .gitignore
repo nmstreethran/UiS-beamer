@@ -11,5 +11,8 @@
 *.gz
 *.toc
 *.vrb
-.vscode/
 *.code-workspace
+*.fdb_latexmk
+*.fls
+*.synctex(busy)
+.vscode/

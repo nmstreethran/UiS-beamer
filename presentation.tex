@@ -1,6 +1,6 @@
 % UiS Beamer presentation (http://ctan.org/pkg/beamer)
+% Modified by Nithiya Streethran (nmstreethran@gmail.com) using uisbeamer.sty
 % Licence: GNU General Public License v3 (https://www.gnu.org/licenses/gpl-3.0.en.html)
-% Modified by Nithiya Streethran (nmstreethran@gmail.com)
 % University of Stavanger (UiS) (https://www.uis.no/)
 
 % DOCUMENT CONFIGURATION AND PROPERTIES -------------------------------
@@ -15,12 +15,16 @@
 \renewcommand \date {\today} % date
 \def \email {emailid@mail.com} % email
 \def \ending {Thank you for your attention!} % ending for end frame
+\def \licenseurl {https://www.gnu.org/licenses/gpl-3.0.en.html} % license URL; leave empty {} if none
+\def \copyright {Copyright \textcopyright~\the\year{}~by \author. Licensed under the GNU General Public License v3.} % copyright info; leave empty {} if none
+\def \subject {Subject} % subject of the presentation; leave empty {} if none
+\def \keywords {keyword1, keyword2} % keywords; leave empty {} if none
 
 % import UiS beamer style file
 \usepackage{uisbeamer}
 
 % import bibliography file
-\addbibresource{sample.bib} % sample courtesy of http://ctan.cs.uu.nl/macros/latex/contrib/biblatex/doc/examples/biblatex-examples.bib
+\addbibresource{sample.bib} % sample bibliography
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
@@ -46,7 +50,7 @@
 \endgroup
 
 % BACKUP SLIDES -----------------------------------------------
-\appendix % https://tex.stackexchange.com/a/70495/140109
+\appendix 
 \backupbg % set backup frames' background
 \input{backup} % references and backup slides
 

@@ -1,3 +1,20 @@
+% uisbeamer.sty
+% Licence: GNU General Public License v3 (https://www.gnu.org/licenses/gpl-3.0.en.html)
+% Copyright (C) 2019 Nithiya Streethran (nmstreethran@gmail.com)
+
+% This program is free software: you can redistribute it and/or modify
+% it under the terms of the GNU General Public License as published by
+% the Free Software Foundation, either version 3 of the License, or
+% (at your option) any later version.
+
+% This program is distributed in the hope that it will be useful,
+% but WITHOUT ANY WARRANTY; without even the implied warranty of
+% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+% GNU General Public License for more details.
+
+% You should have received a copy of the GNU General Public License
+% along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{uisbeamer}
 
@@ -10,7 +27,7 @@
 
 % COLOURS, GRAPHICS AND FONTS --------------------------------
 \usepackage{graphicx} % Allows including images
-\graphicspath{ {images/} } % https://www.overleaf.com/learn/latex/How_to_Write_a_Thesis_in_LaTeX_(Part_1):_Basic_Structure
+\graphicspath{ {images/} } 
 \usepackage{tikz} % for diagrams
 \usetikzlibrary{positioning}
 \definecolor{darkblue}{HTML}{050F42} % custom HTML colours for UiS http://uis.profilmanual.fasett.no/profilfarger-18
@@ -23,7 +40,7 @@
 \definecolor{beige}{HTML}{AD937D}
 \definecolor{lightgrey}{HTML}{F0ECE3}
 \usecolortheme[named=logoblue]{structure} % set theme colour
-\setbeamertemplate{section in toc}{% https://tex.stackexchange.com/a/69721/140109
+\setbeamertemplate{section in toc}{% 
 	{\color{logoblue}\inserttocsectionnumber.}~{\color{logoblue}\textbf{\inserttocsection}}}
 \setbeamertemplate{subsection in toc}{%
 	\hspace{2em}{\color{logoblue}\rule[0.3ex]{3pt}{3pt}}~\inserttocsubsection\par}
@@ -32,16 +49,18 @@
 \setbeamercolor{frametitle}{fg=darkblue}
 \setbeamercolor{normal text}{fg=darkblue}
 \setbeamercolor{example text}{fg=logoblue}
-\usepackage{DejaVuSans} % font % http://www.tug.dk/FontCatalogue/ % https://www.sharelatex.com/learn/latex/Font_typefaces
+\usepackage{DejaVuSans} % font % http://www.tug.dk/FontCatalogue/ 
 \usepackage{csquotes}
-\hypersetup{colorlinks=true,urlcolor=maroon,linkcolor=black,citecolor=mediumorange} % hyperlink formatting https://www.overleaf.com/learn/latex/hyperlinks
+\usepackage{hyperxmp} 
+\hypersetup{colorlinks=true,urlcolor=maroon,linkcolor=black,citecolor=mediumorange,pdfsubject={\subject},
+pdfkeywords={\keywords},pdfcopyright=\copyright,pdflicenseurl=\licenseurl,pdfcontactemail=\email} % hyperlink formatting 
 
-% BIBLIOGRAPHY ------------------- https://tex.stackexchange.com/a/68084/140109
+% BIBLIOGRAPHY ------------------- 
 \usepackage[style=ieee,urldate=long]{biblatex}
-\usepackage{silence} % suppress warning below https://tex.stackexchange.com/a/202994/140109
+\usepackage{silence} % suppress warning below 
 \WarningFilter{biblatex}{Patching footnotes failed} % ^
-\setbeamertemplate{bibliography item}[text] % show numerical reference https://tex.stackexchange.com/a/68081/140109
-\AtBeginBibliography{\tiny} % change bib font size https://tex.stackexchange.com/a/205447/140109
+\setbeamertemplate{bibliography item}[text] % show numerical reference 
+\AtBeginBibliography{\tiny} % change bib font size 
 \usepackage{xpatch} % to remove empty parentheses if year not provided for @online
 \xpatchbibdriver{online}
   {\printtext[parens]{\usebibmacro{date}}}
@@ -62,10 +81,10 @@
     \ifboolexpr{not (test {\ifentrytype{misc}})}%
     {\clearfield{issn} }{}
 	}
-	\DeclareBibliographyAlias{software}{online} % remap software entries to online https://tex.stackexchange.com/a/325255/140109
+	\DeclareBibliographyAlias{software}{online} % remap software entries to online 
   
 % TITLE PAGE FORMATTING -------------------------------------- 
-% adjust title page vertical spacing % https://tex.stackexchange.com/a/255335/140109
+% adjust title page vertical spacing 
 \makeatletter
 \defbeamertemplate*{title page}{mydefault}[1][]{
 	\begin{columns}
@@ -101,7 +120,7 @@
 \author{\auth} % Your name 
 
 % FRAME TITLE FORMATTING ---------------------------------
-\makeatletter % https://tex.stackexchange.com/a/306416/140109
+\makeatletter 
 \setbeamertemplate{frametitle}{
 	\ifbeamercolorempty[bg]{frametitle}{}{\nointerlineskip}%
 	\@tempdima=\textwidth%
@@ -121,12 +140,12 @@
 			\fi
 		}%
 		\vskip-1ex%
-		\if@tempswa\else\vskip-.3cm\fi% set inside beamercolorbox... evil here...
+		\if@tempswa\else\vskip-.3cm\fi% set inside beamercolorbox...
 	\end{beamercolorbox}}
 \makeatother
 
 % FRAME MARGINS -----------------------
-\setbeamertemplate{footline}{ % https://tex.stackexchange.com/a/109984/140109
+\setbeamertemplate{footline}{% 
 	\vspace{.4cm}
 }
 
@@ -143,7 +162,7 @@
 		\draw [line width=1mm,white] (-4.6,-2.6) -- (5.8,-2.6);
 		\node [xshift=-6cm,yshift=-.15cm]{\hskip1em\usebeamercolor[fg]{navigation symbols dimmed}%
 			\insertslidenavigationsymbol% % navigation symbols in top right corner 
-			\insertframenavigationsymbol% % https://tex.stackexchange.com/a/35637/140109
+			\insertframenavigationsymbol% 
 			\insertsectionnavigationsymbol%
 			\insertsubsectionnavigationsymbol%
 			\insertdocnavigationsymbol%
