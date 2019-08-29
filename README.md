@@ -2,11 +2,12 @@
 
 Unofficial [University of Stavanger (UiS)](https://www.uis.no/) Beamer presentation template by Nithiya Streethran (nmstreethran@gmail.com). This was created based on the official PowerPoint template, the [Beamer user guide](https://ctan.org/pkg/beamer) and the [Beamer template tutorial by Claudio Fiandrino](https://tex.stackexchange.com/a/146682/140109). Most of the examples used are taken from [Overleaf](https://www.overleaf.com/learn/latex/Beamer).
 
-I made this template for my own use. Please feel free to suggest improvements (see the [contributing guidelines](/CONTRIBUTING.md) and code of conduct: [CODE_OF_CONDUCT.md](/CODE_OF_CONDUCT.md)). 
+I made this template for my own use. Please feel free to suggest improvements (see the [contributing guidelines](/CONTRIBUTING.md) and [code of conduct](/CODE_OF_CONDUCT.md)). 
 
-Known issue(s): 
+Known issue(s):
 
 - PDF encoding error `Token not allowed in a PDF string` 
+- overfull boxes
 
 ## Description of files
 
