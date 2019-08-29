@@ -1,0 +1,67 @@
+\mode<presentation>
+
+\setbeamertemplate{background}
+{
+  \begin{tikzpicture}[remember picture,overlay,shift={(current page.north)}]
+    \node[yshift=-4.5cm,rectangle,fill=beige!30,beige!30,draw,text width=14.2cm,minimum height=7.6cm,align=center] {};
+    \node[xshift=6.5cm,yshift=-8.65cm]{\includegraphics[scale=.02]{images/background/uis-pos.png}}; % UiS logo
+		\node[darkblue,font=\tiny,xshift=-6.5cm,yshift=-8.65cm] {\@date}; % date 
+    \node[darkblue,font=\tiny,yshift=-8.65cm] {\insertframenumber\,/\,\inserttotalframenumber}; % frame number
+		\node[xshift=-6cm,yshift=-.15cm]{\hskip1em\usebeamercolor[fg]{navigation symbols dimmed}%
+			\insertslidenavigationsymbol%
+			\insertframenavigationsymbol%
+			\insertsectionnavigationsymbol%
+			\insertsubsectionnavigationsymbol%
+			\insertdocnavigationsymbol%
+			\insertbackfindforwardnavigationsymbol};%
+    \ifnum\thepage=1\relax% title slide background
+      \node[yshift=-4.5cm]{\includegraphics[width=.9\paperwidth]{images/background/sky.jpg}}; % sky background
+      \node[xshift=-6.63cm,yshift=-3.5cm]{\includegraphics[scale=.065]{images/background/uis-neg.png}}; % UiS logo
+      \draw[line width=1mm,white] (-4.6,-2.6) -- (5.8,-2.6);
+    \fi
+  \end{tikzpicture}
+}
+
+% Title page
+\defbeamertemplate*{title page}{uis}[1][]
+{
+  \begin{columns}
+		\column{.22\paperwidth}% ADJUST
+		\mbox{}
+		\column{.78\paperwidth}% ADJUST
+    \vskip1.2cm%
+    \begin{beamercolorbox}[wd=10cm,#1]{title page header}
+      \usebeamerfont{title}\inserttitle\par%
+    \end{beamercolorbox}%
+    \ifx\insertsubtitle\@empty%
+      {\vskip.2cm}
+    \else%
+      {\vskip.1cm%
+      \begin{beamercolorbox}[wd=10cm,#1]{subtitle}
+        \usebeamerfont{author}\insertsubtitle%
+      \end{beamercolorbox}
+      \vskip.2cm}
+    \fi
+    \begin{beamercolorbox}[wd=10cm,#1]{author}
+      \usebeamerfont{author}\insertauthor%
+    \end{beamercolorbox}
+    \ifx\insertinstitute\@empty%
+      {}
+    \else%
+      {\vskip.1cm
+      \begin{beamercolorbox}[wd=10cm,#1]{institute}
+        \usebeamerfont{author}\insertinstitute%
+      \end{beamercolorbox}}
+    \fi
+    \vskip.1cm
+    \begin{beamercolorbox}[wd=10cm,#1]{date}
+      \usebeamerfont{author}\insertdate%
+    \end{beamercolorbox}
+  \end{columns}
+}
+
+% Items
+\setbeamertemplate{items}[circle]
+\setbeamertemplate{sections/subsections in toc}[circle]
+
+\mode<all>

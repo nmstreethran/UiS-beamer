@@ -1,0 +1,51 @@
+\mode<presentation>
+
+% Requirement
+\RequirePackage{tikz}
+\usetikzlibrary{positioning}
+\RequirePackage{lmodern} % Latin Modern font
+\RequirePackage[default]{lato} % Lato font
+\RequirePackage{booktabs} % table formatting
+\RequirePackage[ddmmyyyy]{datetime} % date format DD/MM/YYYY
+\RequirePackage{textcomp}
+
+% Settings
+\useinnertheme{uis}
+\useoutertheme{uis}
+\usecolortheme{uis}
+
+\setbeamertemplate{navigation symbols}{} % remove navigation symbols from default position
+\setbeamertemplate{blocks}[rounded][shadow=true]  
+\usefonttheme{structurebold} % boldface title
+
+% Bibliography 
+\RequirePackage[style=ieee,urldate=long]{biblatex}
+\setbeamertemplate{bibliography item}[text] % show numerical reference 
+\AtBeginBibliography{\tiny} % change bib font size 
+\RequirePackage{xpatch} % to remove empty parentheses if year not provided for @online
+\xpatchbibdriver{online}
+  {\printtext[parens]{\usebibmacro{date}}}
+  {\iffieldundef{year}{}{\printtext[parens]{\usebibmacro{date}}}}
+  {}{} 
+\renewbibmacro*{doi+eprint+url}{% % if DOI is not present, print eprint; if eprint is not present, print URL
+  \printfield{doi}%
+  \newunit\newblock%
+  \newunit\newblock%
+  \iffieldundef{doi}{%
+    \usebibmacro{eprint}%
+    \iffieldundef{eprint}{%
+      \usebibmacro{url+urldate}}}%
+      {}%
+}
+% removes unwanted fields for all references except misc
+\AtEveryBibitem{%
+  \ifboolexpr{not (test {\ifentrytype{misc}})}%
+  {\clearfield{issn} }{}
+}
+\DeclareBibliographyAlias{software}{online} % remap software entries to online 
+
+% PDF metadata - including copyright info
+\RequirePackage{hyperxmp}
+\hypersetup{pdfauthor=\insertauthor,pdfcopyright=\copyrightinfo,pdflicenseurl=\licenseurl,pdfkeywords=\keywords,colorlinks=true,urlcolor=logoblue,citecolor=logoblue,linkcolor=logoblue}
+
+\mode<all>
