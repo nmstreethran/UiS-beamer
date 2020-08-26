@@ -1,155 +1,329 @@
-\documentclass[aspectratio=169]{beamer}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-\graphicspath{{images/}} % path containing image files
+%% uis-example.tex
+%% Copyright 2019-2020 N. M. Streethran (nmstreethran at gmail dot com)
+%% License: GNU General Public License, Version 3 (GPL-3.0)
 
-% required fields
-\title{There Is No Largest Prime Number}
-\author[Euclid]{Euclid of Alexandria}
-\date[\today]{27th International Symposium of Prime Numbers - \today} % date and/or event
-% optional fields; comment if not used
-\subtitle{The proof uses \textit{reductio ad absurdum}.}
-\institute[UofA]{University of Alexandria}
-% additional metadata; leave empty {} if not applicable and edit/remove backmatter slides w/ copyright info appropriately
-\def \keywords {numbers, beamer, latex}
-\def \copyrightinfo {Copyright \textcopyright~\the\year{} Euclid of Alexandria, licensed under the CC-BY 4.0 license (unless otherwise stated).}
-\def \licenseurl {https://creativecommons.org/licenses/by/4.0/}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% set custom aspect ratio and import svgnames colours
+\documentclass[aspectratio=169,xcolor={svgnames}]{beamer}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% define title, subtitle, author's name, institute, and
+% date (and/or event name)
+% short versions in [brackets]
+% optionally define the author's email address in the \author field
+% use \today to display today's date in MMM dd, YYYY format
+\title[Prime Numbers]{There Is No Largest Prime Number}
+\subtitle[\textit{reductio ad absurdum}]
+  {The proof uses \textit{reductio ad absurdum}.}
+\author[Euclid of Alexandria]{Euclid of Alexandria
+  \href{mailto:euclid@alexandria.edu}{\texttt{<euclid@alexandria.edu>}}}
+\institute[Musaeum]{Musaeum of Alexandria}
+\date[ISPN \the\year]{27th International Symposium of Prime Numbers; \today}
+% PDF metadata - optional subject and comma-separated keywords
+% leave the braces blank if not applicable
+\def\keywords{presentation, beamer, latex, prime numbers}
+\def\subject{Presented at ISPN \the\year. License: CC BY 4.0.}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% import theme
 \usetheme{uis}
-\addbibresource{sample.bib} % sample bibliography
 
+% import bibliography file
+\addbibresource{sample.bib}
+
+% for generating dummy text
+\usepackage{lipsum}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
   \titlepage
 \end{frame}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{Table of Contents}
-  \tableofcontents 
-  % sections and subsections will be printed in the toc
-\end{frame}
-  
-\section{First Section} % -----------------------------------------
-  
-\subsection{Subsection Example} % ----------------------------------
-  
-\begin{frame}{Table of Contents} 
-  \tableofcontents[currentsection] % highlight current section in the toc
-\end{frame}
-  
-\begin{frame}{Bullet Points}
-  \begin{itemize}
-    \item Lorem ipsum dolor sit amet, consectetur adipiscing elit
-    \item Aliquam blandit faucibus nisi, sit amet dapibus enim tempus eu
-    \item Nulla commodo, erat quis gravida posuere, elit lacus lobortis est, quis porttitor odio mauris at libero
-    \item Nam cursus est eget velit posuere pellentesque
-    \item Vestibulum faucibus velit a augue condimentum quis convallis nulla gravida
-  \end{itemize}
+  \tableofcontents
 \end{frame}
 
-\begin{frame}[allowframebreaks]{Paragraphs of Text with Automatic Frame Breaks} % Untitled frame
-  Sed iaculis dapibus gravida. Morbi sed tortor erat, nec interdum arcu. Sed id lorem lectus. Quisque viverra augue id sem ornare non aliquam nibh tristique. Aenean in ligula nisl. Nulla sed tellus ipsum. Donec vestibulum ligula non lorem vulputate fermentum accumsan neque mollis.\\~\\
-  Sed diam enim, sagittis nec condimentum sit amet, ullamcorper sit amet libero. Aliquam vel dui orci, a porta odio. Nullam id suscipit ipsum. Aenean lobortis commodo sem, ut commodo leo gravida vitae. Pellentesque vehicula ante iaculis arcu pretium rutrum eget sit amet purus. Integer ornare nulla quis neque ultrices lobortis. Vestibulum ultrices tincidunt libero, quis commodo erat ullamcorper id. \\~\\
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lectus nisl, ultricies in feugiat rutrum, porttitor sit amet augue. Aliquam ut tortor mauris. Sed volutpat ante purus, quis accumsan dolor.\\~\\
-  Pellentesque sed tellus purus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vestibulum quis magna at risus dictum tempor eu vitae velit. Suspendisse tincidunt sagittis gravida. Curabitur condimentum, enim sed venenatis rutrum, ipsum neque consectetur orci, sed blandit justo nisi ac lacus.
-\end{frame}  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Some Examples}
 
-\begin{frame}{Blocks of Highlighted Text}
-  \begin{block}{Block 1}
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lectus nisl, ultricies in feugiat rutrum, porttitor sit amet augue. Aliquam ut tortor mauris. Sed volutpat ante purus, quis accumsan dolor.
-  \end{block}
-  \begin{block}{Block 2}
-    Pellentesque sed tellus purus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vestibulum quis magna at risus dictum tempor eu vitae velit.
-  \end{block}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Paragraphs}
+\begin{frame}{\insertsubsectionhead}
+  \lipsum[1][1-5]
+
+  % manual paragraph spacing
+  \vspace{8pt}
+  \lipsum[2][1-5]
 \end{frame}
-  
-\begin{frame}{Multiple Columns}
-  \begin{columns}[c] % The "c" option specifies centred vertical alignment while the "t" option is used for top vertical alignment
-    \column{.45\textwidth} % Left column and width
-    \textbf{Heading}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Lists in Columns with Overlay Specifications}
+\begin{frame}{\insertsubsectionhead}
+The first slide only has bullet points. The second slide has bullet points and
+numbered lists. Both slides are in the same frame and have the same frame
+number at the bottom left.
+
+  \begin{columns}[t]
+    \column{.4\textwidth}
+    \begin{itemize}
+      \item \lipsum[3][1]
+      \item \lipsum[3][2]
+      \begin{itemize}
+        \item \lipsum[3][5]
+        \item \lipsum[3][8]
+      \end{itemize}
+    \end{itemize}
+
+    \column{.4\textwidth}
     \begin{enumerate}
-      \item Statement
-      \item Explanation
-      \item Example
+      \item<2-> \lipsum[3][3]
+      \item<2-> \lipsum[3][4]
+      \begin{enumerate}
+        \item \lipsum[3][6]
+        \item \lipsum[3][7]
+      \end{enumerate}
     \end{enumerate}
-    \column{.45\textwidth} % Right column and width
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lectus nisl, ultricies in feugiat rutrum, porttitor sit amet augue. Aliquam ut tortor mauris. Sed volutpat ante purus, quis accumsan dolor.
   \end{columns}
 \end{frame}
 
-\section{Second Section} % ---------------------------------------
-  
-\begin{frame}{Table of Contents} 
-  \tableofcontents[currentsection] 
-\end{frame}
-  
-\begin{frame}{Table}
-  \begin{table}
-    \setbeamertemplate{caption}{\insertcaption} % if label is not required
-    \caption{Table caption}
-    \begin{tabular}{l l l}
-      \toprule
-      \textbf{Treatments} & \textbf{Response 1} & \textbf{Response 2}\\
-      \midrule
-      Treatment 1 & 0.0003262 & 0.562 \\
-      Treatment 2 & 0.0015681 & 0.910 \\
-      Treatment 3 & 0.0009271 & 0.296 \\
-      \bottomrule
-    \end{tabular}
-  \end{table}
-\end{frame}
-  
-\begin{frame}{Theorem}
-  \begin{theorem}[Mass--energy equivalence]
-    $E = mc^2$
-  \end{theorem}
-  \begin{theorem}[Another example equation]
-    $S_n = \frac{X_1 + X_2 + \cdots + X_n}{n} = \frac{1}{n}\sum_{i}^{n} X_i$
-  \end{theorem}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Text Blocks}
+\begin{frame}{\insertsubsectionhead}
+  \begin{block}{Block}
+    \lipsum[4][1-3]
+    \begin{itemize}
+      \item \lipsum[4][4]
+    \end{itemize}
+  \end{block}
+
+  \begin{exampleblock}{Example Block}
+    \lipsum[4][5-7]
+    \begin{itemize}
+      \item \lipsum[4][8]
+    \end{itemize}
+  \end{exampleblock}
+
+  \begin{alertblock}{Alert Block}
+    \lipsum[4][13]
+    \begin{itemize}
+      \item \lipsum[4][11-12]
+    \end{itemize}
+  \end{alertblock}
 \end{frame}
 
-\begin{frame}[fragile]{Verbatim} % Need to use the fragile option when verbatim is used in the slide
-  \begin{example}[Theorem Slide Code]
-    \begin{verbatim}
-    \begin{frame}
-    \frametitle{Theorem}
-    \begin{theorem}[Mass--energy equivalence]
-    $E = mc^2$
-    \end{theorem}
-    \end{frame}\end{verbatim}
-  \end{example}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Citations and Footnotes}
+\begin{frame}[fragile]{\insertsubsectionhead}
+% if \verb is used, the frame must be fragile
+  These are some inline citations:
+
+  Article \cite{sigfridsson}. Online \cite{ctan}. Book \cite{aristotle:anima}.
+  Thesis \cite{geer}. Report \cite{padhye}. Proceedings \cite{moraux}.
+
+  Use \verb|\nocite| to display sources in the list of references without
+  in-text citation.
+
+  % manual spacing
+  \vspace{8pt}
+  This is an example footnote\footnote{Footnote!}.
+  \nocite{angenendt,vangennep,britannica}
 \end{frame}
 
-\begin{frame}{Figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{More Examples}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Table of Contents}
+  \tableofcontents[currentsection]
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Figures}
+\begin{frame}{\insertsubsectionhead}
+  An example figure (Figure~\ref{fig:sparrow}).
+
   \begin{figure}
-    \includegraphics[width=.2\linewidth]{frog}
-    \setbeamertemplate{caption}{\insertcaption} % if label is not required
-    \caption{Figure caption}
+    \centering
+    \includegraphics[width=.45\textwidth]{Passer_montanus_malaccensis}
+    \caption{
+      Eurasian tree sparrow (\textit{Passer montanus malaccensis}), adult
+      male, in Kuala Lumpur, Malaysia. Taken on 31 January 2019, 15:20:47 by
+      \href{
+        https://commons.wikimedia.org/wiki/File:Passer_montanus_malaccensis_@_Kuala_Lumpur,_Malaysia_(1).jpg
+      }{Peter P. Othagoer, Wikimedia Commons, CC BY 4.0}. \label{fig:sparrow}
+    }
   \end{figure}
 \end{frame}
 
-\begin{frame}[fragile]{Citation} % Need to use the fragile option when verbatim is used in the slide
-  An example of the \verb|\cite| command to cite within the presentation:\\~\\
-  This statement requires a citation \cite{westfahl:space}. This statement requires three citations \cite{angenendt,knuth:ct:b,aristotle:rhetoric}. This statement requires multiple citations \cite{angenendt,knuth:ct:b,aristotle:rhetoric,westfahl:space}.
+\begin{frame}{\insertsubsectionhead}{Side-by-Side}
+  The same as before, but the second image has been flipped horizontally
+  (Figure~\ref{fig:sparrow2}).
+
+  \begin{figure}
+    \centering
+    \includegraphics[width=.4\textwidth]{Passer_montanus_malaccensis}
+    ~~~
+    \reflectbox{
+      \includegraphics[width=.4\textwidth]{Passer_montanus_malaccensis}}
+    \caption{Eurasian tree sparrow (\textit{Passer montanus malaccensis}),
+      adult male, in Kuala Lumpur, Malaysia. Taken on 31 January 2019,
+      15:20:47 by \href{
+        https://commons.wikimedia.org/wiki/File:Passer_montanus_malaccensis_@_Kuala_Lumpur,_Malaysia_(1).jpg
+      }{Peter P. Othagoer, Wikimedia Commons, CC BY 4.0}. \label{fig:sparrow2}
+    }
+  \end{figure}
 \end{frame}
 
-\begin{frame} % thank you slide
-  \Huge\centering{Thank you for your attention!}\large\\~\\
-  \href{mailto:euclid@alexandria.edu}{\ttfamily euclid@alexandria.edu} % email and other contact info can go here
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Tables}
+\begin{frame}{\insertsubsectionhead}
+  An example table (Table~\ref{tab:norm}).
+
+  \begin{table}
+    \caption{A table containing data from the sample long table by
+      \href{
+        https://www.overleaf.com/latex/examples/a-longtable-example/xxwzfxkxxjmc
+      }{LianTze Lim, Overleaf, CC BY 4.0}. \label{tab:norm}
+    }
+    \footnotesize
+    \begin{center}
+      \begin{tabular}{lll}
+        \toprule
+        \textbf{First column} & \textbf{Second column} &
+        \textbf{Third column} \\
+        \midrule
+        One & abcdef ghjijklmn & 123.456778 \\
+        One & abcdef ghjijklmn & 123.456778 \\
+        One & abcdef ghjijklmn & 123.456778 \\
+        One & abcdef ghjijklmn & 123.456778 \\
+        One & abcdef ghjijklmn & 123.456778 \\
+        \bottomrule
+      \end{tabular}
+    \end{center}
+  \end{table}
 \end{frame}
 
-% backmatter --------------------------------
-\appendix 
-\begin{frame}[allowframebreaks]{References}
-% if you would like a citation which is not used in the main body to be displayed in the references, use the \nocite{bibid} command
-  \nocite{vangennep:related,ctan,aksin,bertram,doody,sigfridsson,spiegelberg,springer,aristotle:poetics,britannica}
-  \printbibliography
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Mathematics and Equations}
+\begin{frame}{\insertsubsectionhead}
+  Here's an example inline equation: \(\textrm{e}^{i\pi} + 1 = 0\). Some
+  example equations are shown in Equation~\ref{eqn:int},
+  Equation~\ref{eqn:trig}, and Equation~\ref{eqn:id}.
+
+  \begin{equation}
+    \label{eqn:int}
+    \int x^n\,\mathrm{d}x = \frac{1}{n + 1}x^{n + 1}, \qquad n \neq -1
+  \end{equation}
+
+  \begin{equation}
+    \label{eqn:trig}
+    \sin \frac{\beta}{2} = \sqrt{\frac{1 - \cos \beta}{2}}
+  \end{equation}
+
+  \begin{equation}
+    \label{eqn:id}
+    \begin{bmatrix}
+      n + 1 \\
+      m + 1
+    \end{bmatrix}
+    = \sum_k
+    \begin{pmatrix}
+      n \\
+      k
+    \end{pmatrix}
+    \begin{bmatrix}
+      k \\
+      m
+    \end{bmatrix}
+    = \sum^n_{k = 0}
+    \begin{bmatrix}
+      k \\
+      m
+    \end{bmatrix}
+    (m + 1)^{n -k}
+  \end{equation}
 \end{frame}
 
-\section{Copyright info}
-\begin{frame} % copyright info
-  \copyrightinfo\\~\\
-  \url{\licenseurl}\\~\\
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Code Blocks}
+\begin{frame}[fragile,allowframebreaks]{\insertsubsectionhead}
+% all indentation, line breaks, and spaces will be shown in output
+% as it is verbatim code
+% must use fragile for verbatim code
+\begin{exampleblock}{Python}
+% using custom style (py) defined in template
+\begin{lstlisting}[style=py]
+import os
+import errno
+# create directory if it doesn't already exist
+fpath = 'data/'
+try:
+    os.makedirs(fpath)
+except OSError as exception:
+    if exception.errno != errno.EEXIST:
+        raise
+    else:
+        print ('\nBE CAREFUL! Directory %s already exists.' % fpath)
+\end{lstlisting}
+\end{exampleblock}
+
+\begin{exampleblock}{Shell}
+% using custom style (sh) defined in template
+\begin{lstlisting}[style=sh]
+#!/bin/sh
+
+# change to home directory
+cd $HOME
+
+# delete all lines containing string in file
+grep -v "string to delete" file.txt > tempfile.txt
+
+# rename file
+mv tempfile.txt file.txt
+\end{lstlisting}
+\end{exampleblock}
 \end{frame}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\appendix
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Thank you slide
+\begin{frame}
+  \textbf{\LARGE Thank you for your attention!}
+
+  % manual spacing between lines
+  \vspace{16pt}
+  % optional - copyright info
+  % use \the\year\ to display the current year
+  Copyright (c) \the\year\ Euclid of Alexandria
+  \href{mailto:euclid@alexandria.edu}{\texttt{<euclid@alexandria.edu>}}.
+
+  \vspace{8pt}
+  % creative commons logo via fontawesome
+  {\Huge\faCreativeCommons\ \faCreativeCommonsBy}
+
+  % license info
+  Except where otherwise noted, the contents of this presentation are licensed
+  under a Creative Commons Attribution 4.0 International license (CC BY 4.0)
+  \href{https://creativecommons.org/licenses/by/4.0/}
+  {\texttt{<creativecommons.org/licenses/by/4.0>}}.
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{References}
+\begin{frame}[allowframebreaks]{\insertsectionhead}
+  % references that have been cited in-text
+  \references
+
+  % references from the \nocite command
+  \textbf{Further Reading}
+  \furtherreading
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \end{document}

@@ -1,51 +1,148 @@
+%% beamerthemeuis.sty
+%% Copyright 2019-2020 N. M. Streethran (nmstreethran at gmail dot com)
+%% License: GNU General Public License, Version 3 (GPL-3.0)
+
 \mode<presentation>
 
-% Requirement
-\RequirePackage{tikz}
-\usetikzlibrary{positioning}
-\RequirePackage{lmodern} % Latin Modern font
-\RequirePackage[default]{lato} % Lato font
-\RequirePackage{booktabs} % table formatting
-\RequirePackage[ddmmyyyy]{datetime} % date format DD/MM/YYYY
-\RequirePackage{textcomp}
+% graphics
+\usepackage{graphicx}
+\graphicspath{{images/}}
 
-% Settings
-\useinnertheme{uis}
-\useoutertheme{uis}
-\usecolortheme{uis}
+% custom colours for UiS
+\definecolor{darkblue}{HTML}{050F42}
+\definecolor{logoblue}{HTML}{0A3CA0}
+% \definecolor{lightblue}{HTML}{AAC6E9}
+% \definecolor{darkorange}{HTML}{C23E00}
+% \definecolor{mediumorange}{HTML}{EB5F0A}
+% \definecolor{lightorange}{HTML}{F09600}
+% \definecolor{maroon}{HTML}{661D1A}
+\definecolor{beige}{HTML}{AD937D}
+% \definecolor{lightgrey}{HTML}{F0ECE3}
 
-\setbeamertemplate{navigation symbols}{} % remove navigation symbols from default location
-\setbeamertemplate{blocks}[rounded][shadow=true]  
-\usefonttheme{structurebold} % boldface title
+% set inner, outer, and colour themes
+\useoutertheme{infolines}
+\usecolortheme[named=logoblue]{structure}
+\useinnertheme[shadow]{rounded}
+% set custom colours
+\setbeamercolor{math text}{fg=logoblue}
+\setbeamercolor{normal text}{fg=darkblue}
+\setbeamercolor{background canvas}{bg=beige!30}
+\setbeamercolor*{title}{fg=white}
+\setbeamercolor*{author}{fg=white}
+\setbeamercolor*{date}{fg=white}
+\setbeamercolor*{institute}{fg=white}
+\setbeamercolor*{subtitle}{fg=white}
 
-% Bibliography 
-\RequirePackage[style=ieee,urldate=long]{biblatex}
-\setbeamertemplate{bibliography item}[text] % show numerical reference 
-\AtBeginBibliography{\tiny} % change bib font size 
-\RequirePackage{xpatch} % to remove empty parentheses if year not provided for @online
-\xpatchbibdriver{online}
-  {\printtext[parens]{\usebibmacro{date}}}
-  {\iffieldundef{year}{}{\printtext[parens]{\usebibmacro{date}}}}
-  {}{} 
-\renewbibmacro*{doi+eprint+url}{% % if DOI is not present, print eprint; if eprint is not present, print URL
-  \printfield{doi}%
-  \newunit\newblock%
-  \newunit\newblock%
-  \iffieldundef{doi}{%
-    \usebibmacro{eprint}%
-    \iffieldundef{eprint}{%
-      \usebibmacro{url+urldate}}}%
-      {}%
+% define background and logo image files
+\pgfdeclareimage[width=.9\paperwidth]{skybackground}{images/background/sky}
+\pgfdeclareimage[width=.2\paperwidth]{logoneg}{images/background/uis-neg}
+\pgfdeclareimage[width=.13\paperwidth]{logopos}{images/background/uis-pos}
+
+% title page background
+\setbeamertemplate{background}{
+  \ifnum\thepage=1\relax
+  \begin{picture}(0,0)
+    \put(22,-235){\pgfuseimage{skybackground}}
+    \put(1,-150){\pgfuseimage{logoneg}}
+  \end{picture}
+  \fi
 }
-% removes unwanted fields for all references except misc
-\AtEveryBibitem{%
-  \ifboolexpr{not (test {\ifentrytype{misc}})}%
-  {\clearfield{issn} }{}
-}
-\DeclareBibliographyAlias{software}{online} % remap software entries to online 
 
-% PDF metadata - including copyright info
-\RequirePackage{hyperxmp}
-\hypersetup{pdfauthor=\insertauthor,pdfcopyright=\copyrightinfo,pdflicenseurl=\licenseurl,pdfkeywords=\keywords,colorlinks=true,urlcolor=logoblue,citecolor=logoblue,linkcolor=logoblue}
+% add logo to slides
+\addtobeamertemplate{frametitle}{}{
+  \begin{picture}(0,0)
+    \put(390,21){\pgfuseimage{logopos}}
+  \end{picture}
+}
+
+% remove navigation symbols
+\setbeamertemplate{navigation symbols}{}
+% use numbered captions
+\setbeamertemplate{caption}[numbered]
+% show bibliography numbering
+\setbeamertemplate{bibliography item}[text]
+
+% fonts
+\usepackage{amsmath}
+\usepackage[zerostyle=c,straightquotes]{newtxtt}
+\usepackage[sfdefault]{cabin}
+\usepackage{gfsneohellenicot}
+\usepackage{fontawesome5}
+
+% tables
+\usepackage{booktabs}
+
+% code listings
+\usepackage{listings}
+% settings for all listings
+\lstset{
+  basicstyle=\footnotesize\usefont{T1}{newtxtt}{m}{n},
+  breaklines=true,
+  commentstyle=\itshape\color{SlateGrey},
+  keywordstyle=\bfseries\color{ForestGreen},
+  stringstyle=\color{Crimson},
+  showstringspaces=false
+}
+% additional styling for Python code listings
+\lstdefinestyle{py}{
+  language=Python,
+  keywordstyle={[2]\color{ForestGreen}},
+  morekeywords={True,False,as},
+  morestring=[s]{"""}{"""},
+  morestring=[s]{'''}{'''},
+  literate=
+  *{+}{{{\bfseries\color{DarkOrchid}+}}}1
+  {-}{{{\bfseries\color{DarkOrchid}-}}}1
+  {*}{{{\bfseries\color{DarkOrchid}$^\ast$}}}1
+  {/}{{{\bfseries\color{DarkOrchid}/}}}1
+  {^}{{{\bfseries\color{DarkOrchid}\^{}}}}1
+  {?}{{{\bfseries\color{DarkOrchid}?}}}1
+  {!}{{{\bfseries\color{DarkOrchid}!}}}1
+  {\%}{{{\bfseries\color{DarkOrchid}\%}}}1
+  {<}{{{\bfseries\color{DarkOrchid}<}}}1
+  {>}{{{\bfseries\color{DarkOrchid}>}}}1
+  {|}{{{\bfseries\color{DarkOrchid}|}}}1
+  {\&}{{{\bfseries\color{DarkOrchid}\&}}}1
+  {~}{{{\bfseries\color{DarkOrchid}\char`~}}}1
+  {=}{{{\bfseries\color{DarkOrchid}=}}}1
+  %
+  {==}{{{\bfseries\color{DarkOrchid}==}}}2
+  {<=}{{{\bfseries\color{DarkOrchid}<=}}}2
+  {>=}{{{\bfseries\color{DarkOrchid}>=}}}2
+  %
+  {+=}{{{+=}}}2
+  {-=}{{{-=}}}2
+  {*=}{{{$^\ast$=}}}2
+  {/=}{{{/=}}}2
+}
+% additional styling for shell script listings
+\lstdefinestyle{sh}{
+  language=sh,
+  keywordstyle={[2]\color{ForestGreen}},
+  morekeywords={grep,mv,rm}
+}
+
+% bibliography
+\usepackage[sorting=none,alldates=comp,useprefix=true,
+  giveninits=true,defernumbers=true]{biblatex}
+% suppress shorthand values
+\DeclareSourcemap{
+  \maps[datatype=bibtex]{\map{\step[fieldset=shorthand,null]}}}
+% suppress eprint class values
+\DeclareSourcemap{
+  \maps[datatype=bibtex]{\map{\step[fieldset=eprintclass,null]}}}
+% change font size
+\AtBeginBibliography{\footnotesize}
+% categorise all cited entries
+\DeclareBibliographyCategory{cited}
+\AtEveryCitekey{\addtocategory{cited}{\thefield{entrykey}}}
+% define command for printing bibliography with cited entries only
+\newcommand{\references}{\printbibliography[heading=none,category=cited]}
+% define command for secondary bibliography containing entries not cited
+\newcommand{\furtherreading}{
+  \printbibliography[heading=none,notcategory=cited]}
+
+% PDF metadata
+\hypersetup{pdfkeywords={\keywords},pdfsubject={\subject}}
 
 \mode<all>

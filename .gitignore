@@ -255,5 +255,6 @@ TSWLatexianTemp*
 *.sta
 
 # Visual Studio Code
-# *.code-workspace
+*.code-workspace
 .vscode/
+archive/
