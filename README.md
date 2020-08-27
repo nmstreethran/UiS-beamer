@@ -40,10 +40,10 @@ Packages:
 
 Fonts, icons, and symbols:
 
-- [newtxtt](https://www.ctan.org/pkg/newtxtt)
 - [cabin](https://www.ctan.org/pkg/cabin)
 - [fontawesome5](https://www.ctan.org/pkg/fontawesome5)
 - [GFSNeohellenicMath](https://www.ctan.org/pkg/gfsneohellenicmath)
+- [newtxtt](https://www.ctan.org/pkg/newtxtt)
 
 Temporary packages:
 
