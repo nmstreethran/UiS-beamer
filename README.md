@@ -1,8 +1,14 @@
-# uis-beamer
+# uis-beamer <!-- omit in toc -->
 
 Unofficial [University of Stavanger (UiS)](https://www.uis.no/) Beamer presentation template by Nithiya Streethran (nmstreethran at gmail dot com). This was created based on the official PowerPoint template, the [Beamer user guide](https://ctan.org/pkg/beamer) and the [Beamer template tutorial by Claudio Fiandrino](https://tex.stackexchange.com/a/146682/140109).
 
 **I made this template for my own use. Since I am no longer affiliated with UiS, I do not have use for this template. Feel free to use these files to create an improved version.**
+
+- [Known issue(s)](#known-issues)
+- [Description of files](#description-of-files)
+- [Packages and compilation](#packages-and-compilation)
+- [Credits](#credits)
+- [License](#license)
 
 ## Known issue(s)
 
@@ -47,16 +53,16 @@ Compilation: [XeLaTeX](https://www.ctan.org/pkg/xetex) -> [biber](https://www.ct
 
 ## Credits
 
-- examples may be derived from [TeX Stack Exchange](https://tex.stackexchange.com/) (CC BY SA), [Wikibooks](https://en.wikibooks.org/wiki/LaTeX) (CC BY SA), package documentation on CTAN, and [Overleaf](https://www.overleaf.com/learn)
-  - a longtable example by [LianTze Lim on Overleaf](https://www.overleaf.com/latex/examples/a-longtable-example/xxwzfxkxxjmc) (CC BY 4.0)
+- examples may be derived from [TeX Stack Exchange](https://tex.stackexchange.com/) (CC BY SA), [Wikibooks](https://en.wikibooks.org/wiki/LaTeX) (CC-BY-SA), package documentation on CTAN, and [Overleaf](https://www.overleaf.com/learn)
+  - a longtable example by [LianTze Lim on Overleaf](https://www.overleaf.com/latex/examples/a-longtable-example/xxwzfxkxxjmc) (CC-BY-4.0)
   - sample bibliography from [CTAN's BibLaTeX examples](http://mirrors.ctan.org/macros/latex/contrib/biblatex/doc/examples/biblatex-examples.bib)
   - listings configuration from [karlkoeller on TeX StackExchange](https://tex.stackexchange.com/a/235822/140109)
 - example images are from [Wikimedia Commons](https://commons.wikimedia.org/wiki/Main_Page)
-  - Eurasian tree sparrow (*Passer montanus malaccensis*), adult male, in Kuala Lumpur, Malaysia; taken on 31 January 2019, 15:20:47 by [Peter P. Othagoer](https://commons.wikimedia.org/wiki/File:Passer_montanus_malaccensis_@_Kuala_Lumpur,_Malaysia_%281%29.jpg) (CC BY 4.0)
+  - Eurasian tree sparrow (*Passer montanus malaccensis*), adult male, in Kuala Lumpur, Malaysia; taken on 31 January 2019, 15:20:47 by [Peter P. Othagoer](https://commons.wikimedia.org/wiki/File:Passer_montanus_malaccensis_@_Kuala_Lumpur,_Malaysia_%281%29.jpg) (CC-BY-4.0)
 - some examples are my own work
   - Python code samples from [nithiya/ml-elec-model](https://gitlab.com/nithiya/ml-elec-model) (MIT)
 - Logos, background image and colours: [Universitetet i Stavanger profilmanual](http://uis.profilmanual.fasett.no/universitetet-i-stavanger-profilmanual-1)
 
 ## License
 
-[GNU General Public License, Version 3 (GPL-3.0)](https://www.gnu.org/licenses/gpl-3.0.en.html)
+[GNU General Public License v3.0 or later (GPL-3.0-or-later)](https://www.gnu.org/licenses/gpl-3.0.en.html)
