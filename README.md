@@ -53,7 +53,7 @@ Compilation: [XeLaTeX](https://www.ctan.org/pkg/xetex) -> [biber](https://www.ct
 
 ## Credits
 
-- examples may be derived from [TeX Stack Exchange](https://tex.stackexchange.com/) (CC BY SA), [Wikibooks](https://en.wikibooks.org/wiki/LaTeX) (CC-BY-SA), package documentation on CTAN, and [Overleaf](https://www.overleaf.com/learn)
+- examples may be derived from [TeX Stack Exchange](https://tex.stackexchange.com/) (CC-BY-SA), [Wikibooks](https://en.wikibooks.org/wiki/LaTeX) (CC-BY-SA), package documentation on CTAN, and [Overleaf](https://www.overleaf.com/learn)
   - a longtable example by [LianTze Lim on Overleaf](https://www.overleaf.com/latex/examples/a-longtable-example/xxwzfxkxxjmc) (CC-BY-4.0)
   - sample bibliography from [CTAN's BibLaTeX examples](http://mirrors.ctan.org/macros/latex/contrib/biblatex/doc/examples/biblatex-examples.bib)
   - listings configuration from [karlkoeller on TeX StackExchange](https://tex.stackexchange.com/a/235822/140109)
